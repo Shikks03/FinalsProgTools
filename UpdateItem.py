@@ -46,5 +46,6 @@ def whatToUpdate():
             new_category = AddItem.itemCategory()
             UpdateItem(old_category, new_category)
             break
+    AccessDatabase.saveDatabase()
 
 whatToUpdate()

@@ -1,9 +1,12 @@
 import AccessDatabase
 
+AccessDatabase.loadDatabase()
+
 def displayItems():
-    if AccessDatabase.sample:
+    if AccessDatabase.inventory:
         print("Items in the database:")
-        for item in AccessDatabase.sample:
-            print(f"- {item}") #or make it formatted better
+        print("id   name           quantity   category")
+        for i, item in enumerate(AccessDatabase.inventory):
+            print(f"{(i+1):<4} {item['name']:<15} {item['quantity']:<10} {item['category']}")
     else:
         print("The database is empty.")

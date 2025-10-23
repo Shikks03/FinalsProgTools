@@ -1,12 +1,14 @@
 import AccessDatabase
 
 def addItem(item): # function for adding an item to the database
-    AccessDatabase.sample.append(item)
-    print(f"Item '{item}' added to the database.")
+    AccessDatabase.inventory.append(item)
+    print(f"name: {item["name"]} quantity: {item["quantity"]} category: {item["category"]} ") #for debug 
+    print(f"'{item["name"]}' has been added to the database.")
+    AccessDatabase.saveDatabase()
 
 def checkDuplicate(item): #function for checking duplicates
     item.islower() #make sure to lowercase items when checking
-    if item in AccessDatabase.sample:
+    if item in AccessDatabase.inventory:
         print(f"Item '{item}' already exists in the database.")
         return True
     return False
@@ -38,7 +40,7 @@ def itemCategory(): #inputting category w/ error handling (numbers only for opti
         print("4. Technology")
         print("5. Books")
         categoryOption = input("Enter item category: ")
-        if not categoryOption.isdigit() and categoryOption <= 0 and categoryOption > 5: #1-5 categories
+        if not categoryOption.isdigit() or (int(categoryOption) <= 0 or int(categoryOption) > 5): #1-5 categories
             print("Invalid category. Please enter numeric characters only.")
         else:
             break
@@ -70,9 +72,4 @@ def getItemDetails(): # basically calls all the function to combine the details 
         "category": category
     } #if you want to make it a dictionary
 
-    stringItem = f"{name} - {quantity} - {category}" #if you want to make it a string
-    arrayItem = [name, quantity, category] #if you want to make it an array
-
-    addItem(name) #change to dictionaryItem or arrayItem or stringItem
-    addItem(quantity)
-    addItem(category)
+    addItem(dictionaryItem) #change to dictionaryItem or arrayItem or stringItem

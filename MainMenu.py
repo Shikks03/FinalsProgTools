@@ -4,6 +4,8 @@ import ViewItem
 # import SearchItem
 # import UpdateItem
 
+
+
 while True:
     print("\nWelcome to the Inventory System!")
     print("1. Add Item") #Create
@@ -17,7 +19,6 @@ while True:
         print("Invalid option. Please enter a number between 1 to 6.")
     elif choice == '1':
         AddItem.getItemDetails()
-        print("Item Added.\n")
     elif choice == '2':
         #call the remove item module
         print("Removing item...")
