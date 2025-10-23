@@ -1,7 +1,7 @@
 import AddItem
 import RemoveItem
 import ViewItem
-# import SearchItem
+import SearchItem
 # import UpdateItem
 
 
@@ -27,7 +27,7 @@ while True:
         ViewItem.displayItems()
     elif choice == '4':
         #call the search item module
-        print("Searching item...")
+        SearchItem.searchItem()
     elif choice == '5':
         #call the update item module
         print("Updating item...")
