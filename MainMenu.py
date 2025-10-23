@@ -21,7 +21,7 @@ while True:
         AddItem.getItemDetails()
     elif choice == '2':
         #call the remove item module
-        print("Removing item...")
+        RemoveItem.removeItem()
     elif choice == '3':
         print("Viewing items...")
         ViewItem.displayItems()

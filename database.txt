@@ -1,0 +1,2 @@
+rest, 5, Drinks
+softdrinks, 5, Books

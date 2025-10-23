@@ -1,15 +1,18 @@
 import AccessDatabase
 
 def removeItem():
-    while True: # will loop until valid input
-        item = input("Enter the item name to remove: ")
-        if not item.isalpha():
-            print("Invalid name. Please enter alphabetic characters only.")
-        else:
-            break
-    if not AccessDatabase.checkItemName(item): #check if item exists, if not then it just ends here
-        exit()
-    if item in AccessDatabase.sample:
-        AccessDatabase.sample.remove(item)
-        print(f"Item '{item}' removed from the database.")
-    #need to add a part where it removes everything related to that name
+    while True:
+        choice = input("Enter the ID to remove: ")
+        if not choice.isdigit():
+            print("Invalid input. Please enter a number.")
+            continue
+        
+        choice = int(choice)
+        if choice < 1 or choice > len(AccessDatabase.inventory):
+            print("Invalid ID. Please enter a valid one.")
+            continue
+        break
+
+    item = AccessDatabase.inventory.pop(choice - 1)
+    print(f"Item '{item['name']}' removed from the database.")
+    AccessDatabase.saveDatabase()

@@ -6,11 +6,10 @@ def addItem(item): # function for adding an item to the database
     print(f"'{item["name"]}' has been added to the database.")
     AccessDatabase.saveDatabase()
 
-def checkDuplicate(item): #function for checking duplicates
-    item.islower() #make sure to lowercase items when checking
-    if item in AccessDatabase.inventory:
-        print(f"Item '{item}' already exists in the database.")
-        return True
+def checkDuplicate(name):  # check if item name already exists
+    for item in AccessDatabase.inventory:
+        if item["name"].lower() == name.lower():
+            return True
     return False
 
 def itemName(): #inputting name w/ error handling (letters only)
@@ -18,6 +17,8 @@ def itemName(): #inputting name w/ error handling (letters only)
         name = input("Enter item name: ")
         if not name.isalpha():
             print("Invalid name. Please enter alphabetic characters only.")
+        elif checkDuplicate(name):
+            print(f"Item '{name}' already exists.")
         else:
             break
     return name
@@ -58,6 +59,8 @@ def itemCategory(): #inputting category w/ error handling (numbers only for opti
     
 
 def getItemDetails(): # basically calls all the function to combine the details of the item
+    AccessDatabase.loadDatabase()
+    
     print("\nAdding a new item")
 
     name = itemName()
