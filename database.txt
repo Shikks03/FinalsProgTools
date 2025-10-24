@@ -2,3 +2,4 @@ rest, 5, Drinks
 rester, 10, Clothing
 your mom, 32, Technology
 yo  s, 34, Technology
+your mother, 43, Drinks

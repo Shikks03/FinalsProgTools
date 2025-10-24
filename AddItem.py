@@ -12,11 +12,15 @@ def checkDuplicate(name):  # check if item name already exists
             return True
     return False
 
-def itemName(): #inputting name w/ error handling (letters only and spaces)
+def itemName():  # inputting name w/ error handling (letters only and single spaces)
     while True:
         name = input("Enter item name: ")
-        if not name.strip() or not all(c.isalpha() or c.isspace() for c in name):
-            print("Invalid name. Please enter letters and spaces only.")
+        if (
+            not name.strip()
+            or "  " in name
+            or not all(c.isalpha() or c.isspace() for c in name)
+        ):
+            print("Invalid name. Please enter letters and single spaces only.")
         elif checkDuplicate(name):
             print(f"Item '{name}' already exists.")
         else:
