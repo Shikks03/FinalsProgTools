@@ -47,7 +47,7 @@ def whatToUpdate():
             break
         elif choice == '3':
             print("\nUpdating item category")
-            old = item["name"]
+            old = item["category"]
             new = AddItem.itemCategory()
             UpdateItem(item, "category", old, new)
             break

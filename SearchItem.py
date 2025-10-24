@@ -14,7 +14,3 @@ def searchItem():
         print("No results found.")
     else:
         print(f"{totalHits} result(s) found.")
-
-
-#wla pang error handling
-#make sure to islowercase when checking
