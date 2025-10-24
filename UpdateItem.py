@@ -1,24 +1,29 @@
 import AccessDatabase
 import AddItem
 
-def UpdateItem(old_item, new_item):
-    if old_item in AccessDatabase.sample: #looking for the item then updating it
-        index = AccessDatabase.sample.index(old_item)
-        AccessDatabase.sample[index] = new_item
-        print(f"Item '{old_item}' updated to '{new_item}' in the database.")
+def UpdateItem(item, type, old, new): #no fixed data type
+    oldItem = item[type]
+    if oldItem == old:
+        item[type] = new
+        print(f"Item {type} '{old}' updated to '{new}' in the database.")
     else:
-        print(f"Item '{old_item}' not found in the database.")
+        print("Error matching items.")
 
 
 def whatToUpdate():
-    while True: # will loop until valid input
-        item = input("Enter the item name to update: ")
-        if not item.isalpha():
-            print("Invalid name. Please enter alphabetic characters only.")
-        else:
-            break
-        if not AccessDatabase.checkItemName(item): 
-            exit() #if hindi nakita ung item sa database then the function ends
+    while True: # will loop until valid input\
+        choice = input("Enter the ID to update: ")
+        if not choice.isdigit():
+            print("Invalid input. Please enter a number.")
+            continue
+        
+        choice = int(choice)
+        if choice < 1 or choice > len(AccessDatabase.inventory):
+            print("Invalid ID. Please enter a valid one.")
+            continue
+        break
+
+    item = AccessDatabase.inventory[choice-1]
 
     while True: #while loop until valid choice input
         print(f"What would you like to update for the item '{item}'?")
@@ -30,22 +35,20 @@ def whatToUpdate():
             print("Invalid option. Please enter a number between 1 to 3.\n")
         elif choice == '1':
             print("\nUpdating item name")
-            old_name = item
-            new_name = input("Enter the new item name: ")
-            UpdateItem(old_name, new_name)
+            old = item["name"]
+            new = AddItem.itemName()
+            UpdateItem(item, "name", old, new)
             break
         elif choice == '2':
             print("\nUpdating item quantity")
-            old_quantity = AccessDatabase.sample[2]  # this is if the quantity is stored at index 2
-            new_quantity = input("Enter the new item quantity: ")
-            UpdateItem(old_quantity, new_quantity)
+            old = item["quantity"]
+            new = AddItem.itemQuantity()
+            UpdateItem(item, "quantity", old, new)
             break
         elif choice == '3':
             print("\nUpdating item category")
-            old_category = AccessDatabase.sample[3]  # this is if the category is stored at index 3
-            new_category = AddItem.itemCategory()
-            UpdateItem(old_category, new_category)
+            old = item["name"]
+            new = AddItem.itemCategory()
+            UpdateItem(item, "category", old, new)
             break
     AccessDatabase.saveDatabase()
-
-whatToUpdate()

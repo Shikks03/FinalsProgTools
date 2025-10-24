@@ -2,7 +2,7 @@ import AddItem
 import RemoveItem
 import ViewItem
 import SearchItem
-# import UpdateItem
+import UpdateItem
 
 
 
@@ -21,6 +21,7 @@ while True:
         AddItem.getItemDetails()
     elif choice == '2':
         #call the remove item module
+        ViewItem.displayItems()
         RemoveItem.removeItem()
     elif choice == '3':
         print("Viewing items...")
@@ -30,7 +31,8 @@ while True:
         SearchItem.searchItem()
     elif choice == '5':
         #call the update item module
-        print("Updating item...")
+        ViewItem.displayItems()
+        UpdateItem.whatToUpdate()
     elif choice == '6':
         print("Exiting the system...")
         exit()
