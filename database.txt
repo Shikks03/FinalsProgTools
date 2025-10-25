@@ -1,5 +1,30 @@
-rest, 5, Drinks
-rester, 10, Clothing
-your mom, 32, Technology
-yo  s, 34, Technology
-your mother, 43, Drinks
+granola, 24, Food
+cheddar, 12, Food
+tomatosauce, 38, Food
+bread, 16, Food
+yogurt, 45, Food
+carrots, 30, Food
+orangejuice, 50, Drinks
+sparklingwater, 60, Drinks
+coffee, 28, Drinks
+greentea, 40, Drinks
+cola, 70, Drinks
+almondmilk, 33, Drinks
+tshirt, 22, Clothing
+jeans, 15, Clothing
+sweater, 9, Clothing
+belt, 18, Clothing
+socks, 55, Clothing
+cap, 27, Clothing
+mouse, 14, Technology
+usb, 48, Technology
+hdmi, 11, Technology
+laptopstand, 7, Technology
+speaker, 19, Technology
+charger, 35, Technology
+cooking, 21, Books
+scifi, 13, Books
+storybook, 29, Books
+art history, 6, Books
+programming, 44, Books
+atlas, 5, Books
